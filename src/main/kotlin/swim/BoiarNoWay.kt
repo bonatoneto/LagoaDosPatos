@@ -1,4 +1,7 @@
-package swim
+import interfaces.Nadar
 
-class BoiarNoWay {
+class BoiarNoWay: Nadar {
+    override fun performNadar(): String {
+        return "Eu não boio"
+    }
 }

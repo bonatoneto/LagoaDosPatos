@@ -1,16 +1,51 @@
-package org.example
+import audio.SomNoWay
+import audio.SomPato
+import characters.Pato
+import characters.PatoDeBorracha
+import characters.PatoDeMadeira
+import characters.PatoSelvagem
+import fly.VoarComBalao
+import fly.VoarNaturalmente
+import fly.VoarNoWay
+import swim.Boiar
+import swim.Nadar
+import swim.NadarNoWay
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+fun main(args: Array<String>) {
+    val patoNormal = Pato(VoarNaturalmente(), SomPato(), Nadar(), Boiar())
+    println("Nome: " + patoNormal.nome)
+    println(patoNormal.emitirSom())
+    println(patoNormal.nadar())
+    println(patoNormal.voar())
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+    println("------------------------------------------------------")
+
+    val patoSelvagem = PatoSelvagem(VoarNaturalmente(), SomPato(), Nadar(), Boiar())
+    println("Nome: " + patoSelvagem.nome)
+    println(patoSelvagem.emitirSom())
+    println(patoSelvagem.voar())
+    println(patoSelvagem.nadar())
+    println(patoSelvagem.bicar())
+
+    println("------------------------------------------------------")
+
+    val patoDeBorracha = PatoDeBorracha(VoarNoWay(), SomPato(), NadarNoWay(), Boiar())
+    println("Nome: " + patoDeBorracha.nome)
+    println(patoDeBorracha.emitirSom())
+    println(patoDeBorracha.nadar())
+    println(patoDeBorracha.boiar())
+    println(patoDeBorracha.voar())
+    val voandoComBalao = PatoDeBorracha(VoarComBalao(), SomPato(), NadarNoWay(), Boiar())
+    println(voandoComBalao.voar())
+
+    println("------------------------------------------------------")
+
+    val patoDeMadeira = PatoDeMadeira(VoarNoWay(), SomNoWay(), NadarNoWay(), BoiarNoWay())
+    println("Nome: " + patoDeMadeira.nome)
+    println(patoDeMadeira.nadar())
+    println(patoDeMadeira.boiar())
+    println(patoDeMadeira.voar())
+    println(patoDeMadeira.emitirSom())
+    val patoDeMadeiraComBalao = PatoDeMadeira(VoarComBalao(), SomNoWay(), NadarNoWay(), BoiarNoWay())
+    println(patoDeMadeiraComBalao.voar())
 }

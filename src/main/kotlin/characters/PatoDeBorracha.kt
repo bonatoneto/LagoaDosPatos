@@ -2,13 +2,17 @@ package characters
 
 import interfaces.EmitirSom
 import interfaces.Voar
+import swim.Boiar
+import swim.NadarNoWay
 
-class PatoDeBorracha(voar: Voar, som: EmitirSom): Pato(voar, som) {
+class PatoDeBorracha(voar: Voar, som: EmitirSom, nadar: NadarNoWay, boiar: Boiar): Pato(voar, som, nadar, boiar) {
     override var nome: String = "Pato de Borracha"
-    override fun nadar() {
-        return println("Eu não nado")
+
+    override fun nadar(): String {
+        return (this.nadar.performNadar())
     }
-    fun boiar(): String  {
-       return "Estou boiando"
+
+    override fun boiar(): String? {
+        return (this.boiar?.performNadar())
     }
 }
