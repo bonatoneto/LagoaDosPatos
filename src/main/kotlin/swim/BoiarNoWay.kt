@@ -1,0 +1,4 @@
+package swim
+
+class BoiarNoWay {
+}
